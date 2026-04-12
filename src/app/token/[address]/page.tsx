@@ -6,7 +6,7 @@ import { BondingCurveChart } from '@/components/token/BondingCurveChart'
 import { BuySellWidget } from '@/components/token/BuySellWidget'
 import { formatAddress, formatNumber, formatPrice, formatTimestamp, formatSRX } from '@/lib/utils'
 import { GRADUATION_THRESHOLD } from '@/lib/bonding-curve'
-import { ExternalLink, ShieldCheck, AlertTriangle, TrendingUp, Users, BarChart2 } from 'lucide-react'
+import { ExternalLink, ShieldCheck, AlertTriangle, TrendingUp, Users, BarChart2, Globe, Send, MessageSquare } from 'lucide-react'
 import Link from 'next/link'
 
 interface Props {
@@ -67,6 +67,36 @@ export default async function TokenDetailPage({ params }: Props) {
                   Explorer <ExternalLink className="w-3 h-3" />
                 </Link>
               </div>
+
+              {/* Social links */}
+              {(token.website || token.twitter || token.telegram || token.discord) && (
+                <div className="flex items-center gap-2 mt-2 flex-wrap">
+                  {token.website && (
+                    <Link href={token.website} target="_blank"
+                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--sf)] border border-[var(--brd)] text-xs text-[var(--tx-d)] hover:text-[var(--gold)] hover:border-[var(--brd2)] transition-all">
+                      <Globe className="w-3 h-3" /> Website
+                    </Link>
+                  )}
+                  {token.twitter && (
+                    <Link href={token.twitter} target="_blank"
+                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--sf)] border border-[var(--brd)] text-xs text-[var(--tx-d)] hover:text-[var(--gold)] hover:border-[var(--brd2)] transition-all">
+                      <span className="text-[10px] font-bold leading-none">𝕏</span> Twitter
+                    </Link>
+                  )}
+                  {token.telegram && (
+                    <Link href={token.telegram} target="_blank"
+                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--sf)] border border-[var(--brd)] text-xs text-[var(--tx-d)] hover:text-[var(--gold)] hover:border-[var(--brd2)] transition-all">
+                      <Send className="w-3 h-3" /> Telegram
+                    </Link>
+                  )}
+                  {token.discord && (
+                    <Link href={token.discord} target="_blank"
+                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--sf)] border border-[var(--brd)] text-xs text-[var(--tx-d)] hover:text-[var(--gold)] hover:border-[var(--brd2)] transition-all">
+                      <MessageSquare className="w-3 h-3" /> Discord
+                    </Link>
+                  )}
+                </div>
+              )}
             </div>
           </div>
 

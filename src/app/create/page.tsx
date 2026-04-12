@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/Badge'
 import { useWalletStore } from '@/store/wallet'
 import { BASE_PRICE, K, GRADUATION_THRESHOLD } from '@/lib/bonding-curve'
 import { formatNumber } from '@/lib/utils'
-import { Rocket, Info, CheckCircle, AlertTriangle, Flame } from 'lucide-react'
+import { Rocket, Info, CheckCircle, AlertTriangle, Flame, Globe, Send, MessageSquare } from 'lucide-react'
 
 const REQUIRED_SNTX = 100
 
@@ -16,6 +16,10 @@ interface FormData {
   description: string
   imageUrl: string
   totalSupply: string
+  website: string
+  twitter: string
+  telegram: string
+  discord: string
 }
 
 export default function CreatePage() {
@@ -26,6 +30,10 @@ export default function CreatePage() {
     description: '',
     imageUrl: '',
     totalSupply: '1000000000',
+    website: '',
+    twitter: '',
+    telegram: '',
+    discord: '',
   })
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState<Partial<FormData>>({})
@@ -138,6 +146,41 @@ export default function CreatePage() {
               ? <p className="text-xs text-red-400">{errors.description}</p>
               : <p className="text-xs text-[var(--tx-d)]">Tokens without descriptions get an automatic ⚠️ warning label</p>
             }
+          </div>
+
+          {/* Social links */}
+          <div className="space-y-3">
+            <p className="text-sm font-medium text-[var(--tx-m)]">
+              Social Links <span className="text-[var(--tx-d)] font-normal">(Optional)</span>
+            </p>
+            <Input
+              placeholder="https://yourproject.com"
+              value={form.website}
+              onChange={set('website')}
+              prefix={<Globe className="w-3.5 h-3.5" />}
+              hint="Website"
+            />
+            <Input
+              placeholder="https://twitter.com/yourproject"
+              value={form.twitter}
+              onChange={set('twitter')}
+              prefix={<span className="text-xs font-bold">𝕏</span>}
+              hint="Twitter / X"
+            />
+            <Input
+              placeholder="https://t.me/yourproject"
+              value={form.telegram}
+              onChange={set('telegram')}
+              prefix={<Send className="w-3.5 h-3.5" />}
+              hint="Telegram"
+            />
+            <Input
+              placeholder="https://discord.gg/yourproject"
+              value={form.discord}
+              onChange={set('discord')}
+              prefix={<MessageSquare className="w-3.5 h-3.5" />}
+              hint="Discord"
+            />
           </div>
 
           <Input

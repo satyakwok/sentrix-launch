@@ -12,6 +12,11 @@ export interface Token {
   isGraduated: boolean
   isWarned: boolean
   isVerified: boolean
+  // social links (all optional)
+  website?: string
+  twitter?: string
+  telegram?: string
+  discord?: string
   // computed
   price: number // in SRX
   marketCap: number // in SRX

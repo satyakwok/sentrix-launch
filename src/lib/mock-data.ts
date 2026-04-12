@@ -17,6 +17,9 @@ const RAW: Omit<Token, 'price' | 'marketCap' | 'progress'>[] = [
     isGraduated: false,
     isWarned: false,
     isVerified: true,
+    website: 'https://nusantaratoken.example.com',
+    twitter: 'https://twitter.com/nusantaratoken',
+    telegram: 'https://t.me/nusantaratoken',
   },
   {
     address: 'SRX20_b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3',
@@ -32,6 +35,10 @@ const RAW: Omit<Token, 'price' | 'marketCap' | 'progress'>[] = [
     isGraduated: false,
     isWarned: false,
     isVerified: true,
+    website: 'https://fastchain.example.io',
+    twitter: 'https://twitter.com/fastchaintoken',
+    telegram: 'https://t.me/fastchainofficial',
+    discord: 'https://discord.gg/fastchain',
   },
   {
     address: 'SRX20_c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4',
@@ -47,6 +54,8 @@ const RAW: Omit<Token, 'price' | 'marketCap' | 'progress'>[] = [
     isGraduated: false,
     isWarned: false,
     isVerified: false,
+    twitter: 'https://twitter.com/sentdoge',
+    telegram: 'https://t.me/sentdoge',
   },
   {
     address: 'SRX20_d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5',
@@ -62,6 +71,7 @@ const RAW: Omit<Token, 'price' | 'marketCap' | 'progress'>[] = [
     isGraduated: false,
     isWarned: false,
     isVerified: false,
+    // no socials — newly launched
   },
   {
     address: 'SRX20_e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6',
@@ -77,6 +87,10 @@ const RAW: Omit<Token, 'price' | 'marketCap' | 'progress'>[] = [
     isGraduated: true,
     isWarned: false,
     isVerified: true,
+    website: 'https://archipelagocoin.example.com',
+    twitter: 'https://twitter.com/archipelagocoin',
+    telegram: 'https://t.me/archipelagocoin',
+    discord: 'https://discord.gg/archipelago',
   },
   {
     address: 'SRX20_f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1',
@@ -92,6 +106,7 @@ const RAW: Omit<Token, 'price' | 'marketCap' | 'progress'>[] = [
     isGraduated: false,
     isWarned: true, // no description
     isVerified: false,
+    // no socials — warned token
   },
 ]
 
