@@ -1,11 +1,8 @@
 import Link from 'next/link'
 import type { Token } from '@/types'
-import { Badge } from '@/components/ui/Badge'
 import { Progress } from '@/components/ui/Progress'
-import { GlowCard } from '@/components/ui/GlowCard'
-import { formatNumber, formatPrice, formatTimestamp, formatAddress } from '@/lib/utils'
+import { formatNumber } from '@/lib/utils'
 import { ShieldCheck, AlertTriangle, TrendingUp } from 'lucide-react'
-import { GRADUATION_THRESHOLD } from '@/lib/bonding-curve'
 
 interface TokenCardProps {
   token: Token
@@ -13,88 +10,63 @@ interface TokenCardProps {
 
 export function TokenCard({ token }: TokenCardProps) {
   return (
-    <GlowCard className="rounded-xl">
-      <Link
-        href={`/token/${token.address}`}
-        className="block group bg-[var(--sf)] hover:bg-[var(--sf2)] border border-[var(--brd)] hover:border-[var(--brd2)] rounded-xl p-4 transition-all duration-200"
-      >
-        {/* Header */}
-        <div className="flex items-start gap-3 mb-3">
-          <img
-            src={token.imageUrl}
-            alt={token.name}
-            className="w-10 h-10 rounded-lg shrink-0 bg-[var(--sf2)]"
-          />
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="font-semibold text-[var(--tx)] text-sm group-hover:text-[var(--gold)] transition-colors truncate">
-                {token.name}
-              </span>
-              <span className="text-xs text-[var(--tx-d)] font-mono">{token.symbol}</span>
-            </div>
-            <p className="text-xs text-[var(--tx-d)] mt-0.5 truncate">
-              by {formatAddress(token.creator)}
-            </p>
-          </div>
-          <div className="flex flex-col items-end gap-1 shrink-0">
-            {token.isVerified && (
-              <Badge variant="blue"><ShieldCheck className="w-3 h-3" /> Verified</Badge>
-            )}
-            {token.isWarned && (
-              <Badge variant="warn"><AlertTriangle className="w-3 h-3" /> Warning</Badge>
-            )}
-            {token.isGraduated && (
-              <Badge variant="green"><TrendingUp className="w-3 h-3" /> Graduated</Badge>
-            )}
-          </div>
+    <Link
+      href={`/token/${token.address}`}
+      className="block group bg-[var(--sf)] border border-[var(--brd)] hover:border-[var(--brd2)] rounded-xl overflow-hidden transition-all duration-200 hover:shadow-[0_0_20px_rgba(200,168,74,0.08)]"
+    >
+      {/* Square image */}
+      <div className="relative aspect-square w-full overflow-hidden bg-[var(--sf2)]">
+        <img
+          src={token.imageUrl}
+          alt={token.name}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+        {/* Badges top-right */}
+        <div className="absolute top-2 right-2 flex flex-col gap-1 items-end">
+          {token.isVerified && (
+            <span className="flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm text-[10px] text-[var(--gold)] border border-[var(--brd2)]">
+              <ShieldCheck className="w-2.5 h-2.5" /> Verified
+            </span>
+          )}
+          {token.isWarned && (
+            <span className="flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm text-[10px] text-orange-400 border border-orange-500/30">
+              <AlertTriangle className="w-2.5 h-2.5" /> Warning
+            </span>
+          )}
+          {token.isGraduated && (
+            <span className="flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm text-[10px] text-emerald-400 border border-emerald-500/30">
+              <TrendingUp className="w-2.5 h-2.5" /> DEX
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Info */}
+      <div className="p-3 space-y-2">
+        <div className="flex items-baseline justify-between gap-2 min-w-0">
+          <span className="font-semibold text-[var(--tx)] text-sm truncate group-hover:text-[var(--gold)] transition-colors">
+            {token.name}
+          </span>
+          <span className="text-[var(--tx-d)] font-mono text-xs shrink-0">{token.symbol}</span>
         </div>
 
-        {/* Description */}
-        {token.description && (
-          <p className="text-xs text-[var(--tx-d)] line-clamp-2 mb-3 leading-relaxed">{token.description}</p>
-        )}
-
-        {/* Stats */}
-        <div className="grid grid-cols-2 gap-2 mb-3 text-xs">
-          <div>
-            <p className="text-[var(--tx-d)]">Market Cap</p>
-            <p className="text-[var(--tx)] font-semibold">{formatNumber(token.marketCap)} SRX</p>
-          </div>
-          <div>
-            <p className="text-[var(--tx-d)]">Price</p>
-            <p className="text-[var(--tx)] font-semibold">{formatPrice(token.price)}</p>
-          </div>
-          <div>
-            <p className="text-[var(--tx-d)]">24h Vol</p>
-            <p className="text-emerald-400 font-semibold">{formatNumber(token.volume24h)} SRX</p>
-          </div>
-          <div>
-            <p className="text-[var(--tx-d)]">Created</p>
-            <p className="text-[var(--tx-m)]">{formatTimestamp(token.createdAt)}</p>
-          </div>
+        <div className="flex items-center justify-between text-xs">
+          <span className="text-[var(--tx-d)]">Market cap</span>
+          <span className="text-[var(--tx)] font-semibold">{formatNumber(token.marketCap)} SRX</span>
         </div>
 
-        {/* Graduation progress */}
-        {!token.isGraduated && (
-          <div>
-            <div className="flex items-center justify-between text-xs mb-1.5">
-              <span className="text-[var(--tx-d)]">Graduation progress</span>
-              <span className="text-[var(--gold)] font-medium">{token.progress.toFixed(1)}%</span>
-            </div>
+        {!token.isGraduated ? (
+          <div className="space-y-1">
             <Progress value={token.progress} color="gold" />
-            <p className="text-xs text-[var(--tx-d)] mt-1">
-              {formatNumber(GRADUATION_THRESHOLD - token.marketCap)} SRX to graduation
-            </p>
+            <p className="text-[10px] text-[var(--tx-d)] text-right">{token.progress.toFixed(1)}%</p>
+          </div>
+        ) : (
+          <div className="flex items-center gap-1.5">
+            <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+            <span className="text-[10px] text-emerald-400">Listed on DEX</span>
           </div>
         )}
-
-        {token.isGraduated && (
-          <div className="flex items-center gap-2 pt-2 border-t border-[var(--brd)]">
-            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-            <span className="text-xs text-emerald-400">Listed on Sentrix DEX</span>
-          </div>
-        )}
-      </Link>
-    </GlowCard>
+      </div>
+    </Link>
   )
 }
