@@ -165,7 +165,7 @@ export function BuySellWidget({ token }: BuySellWidgetProps) {
             </div>
             <div className="bg-[var(--gold)]/8 border border-[var(--brd2)] rounded-lg px-3 py-2 mb-4">
               <p className="text-[var(--tx-m)] text-xs">
-                ⚠️ Sentrix Launch contracts are deploying in Phase 2. Transactions are not live yet.
+                ⚠️ CoinBlast contracts are deploying in Phase 2. Transactions are not live yet.
               </p>
             </div>
             <div className="flex gap-3">

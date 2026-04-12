@@ -15,7 +15,7 @@ export function Footer() {
             </div>
             <div>
               <div className="font-serif text-sm tracking-[.25em] uppercase text-[var(--tx)]">
-                Sentrix <span className="text-[var(--gold)]">Launch</span>
+                Coin<span className="text-[var(--gold)]">Blast</span>
               </div>
               <div className="text-xs text-[var(--tx-d)] mt-0.5">Powered by Sentrix Chain</div>
             </div>

@@ -72,7 +72,7 @@ export function Header() {
               </svg>
             </div>
             <span className="font-serif text-sm tracking-[.25em] uppercase text-[var(--tx)] group-hover:text-[var(--gold)] transition-colors hidden sm:block">
-              Sentrix <span className="text-[var(--gold)]">Launch</span>
+              Coin<span className="text-[var(--gold)]">Blast</span>
             </span>
           </Link>
 

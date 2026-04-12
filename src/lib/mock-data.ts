@@ -1,7 +1,7 @@
 import type { Token, Holder, Trade } from '@/types'
 import { getPrice, getMarketCap, getProgress } from './bonding-curve'
 
-// ── Mock tokens (realistic Sentrix Launch data) ─────────────
+// ── Mock tokens (realistic CoinBlast data) ─────────────
 const RAW: Omit<Token, 'price' | 'marketCap' | 'progress'>[] = [
   {
     address: 'SRX20_a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2',

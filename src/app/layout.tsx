@@ -4,13 +4,13 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
-  title: 'Sentrix Launch — Token Launchpad',
-  description: 'Launch your token in 2 minutes. No coding. No pre-sale. Fair for everyone. Powered by Sentrix Chain.',
-  keywords: ['Sentrix', 'token launchpad', 'bonding curve', 'SRX', 'SNTX', 'fair launch'],
+  title: 'CoinBlast — Launch Your Coin',
+  description: 'Launch your coin in seconds. No coding. No pre-sale. Fair for everyone. Powered by Sentrix Chain.',
+  keywords: ['CoinBlast', 'coin launchpad', 'bonding curve', 'SRX', 'SNTX', 'fair launch'],
   openGraph: {
-    title: 'Sentrix Launch',
-    description: 'Launch your token in 2 minutes. Fair for everyone.',
-    siteName: 'Sentrix Launch',
+    title: 'CoinBlast',
+    description: 'Launch your coin in seconds. Fair for everyone.',
+    siteName: 'CoinBlast',
     type: 'website',
   },
 }
