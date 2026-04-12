@@ -20,6 +20,12 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+  {
+    rules: {
+      // External token images are dynamic URLs — skip next/image optimization
+      "@next/next/no-img-element": "off",
+    },
+  },
 ];
 
 export default eslintConfig;
