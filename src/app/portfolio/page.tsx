@@ -28,7 +28,7 @@ export default function PortfolioPage() {
 
   if (!isConnected) {
     return (
-      <div className="max-w-7xl mx-auto px-4 pt-[100px] pb-20 text-center">
+      <div className="max-w-7xl mx-auto px-4 pt-[96px] pb-20 text-center">
         <div className="w-20 h-20 bg-[var(--sf)] border border-[var(--brd)] rounded-full flex items-center justify-center mx-auto mb-6">
           <Wallet className="w-10 h-10 text-[var(--tx-d)]" />
         </div>
@@ -51,7 +51,7 @@ export default function PortfolioPage() {
   const pnlPct = totalInvested > 0 ? ((totalPnL / totalInvested) * 100) : 0
 
   return (
-    <div className="max-w-7xl mx-auto px-4 pt-[80px] pb-10">
+    <div className="max-w-7xl mx-auto px-4 pt-[96px] pb-10">
       {/* Header */}
       <div className="flex items-start justify-between flex-wrap gap-4 mb-8">
         <div>

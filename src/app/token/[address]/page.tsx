@@ -22,7 +22,7 @@ export default async function TokenDetailPage({ params }: Props) {
   const soldPct = ((token.tokensSold / token.totalSupply) * 100).toFixed(1)
 
   return (
-    <div className="max-w-7xl mx-auto px-4 pt-[80px] pb-10">
+    <div className="max-w-7xl mx-auto px-4 pt-[96px] pb-10">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-[var(--tx-d)] mb-6">
         <Link href="/explore" className="hover:text-[var(--gold)] transition-colors">Explore</Link>

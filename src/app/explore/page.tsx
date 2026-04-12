@@ -50,7 +50,7 @@ export default function ExplorePage() {
   }, [filter, sort, search])
 
   return (
-    <div className="max-w-7xl mx-auto px-4 pt-[80px] pb-10">
+    <div className="max-w-7xl mx-auto px-4 pt-[96px] pb-10">
 
       {/* Search bar — prominent at top */}
       <div className="relative max-w-xl mx-auto mb-6">
