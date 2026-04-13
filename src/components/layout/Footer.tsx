@@ -23,7 +23,7 @@ export function Footer() {
 
           {/* Links */}
           <div className="flex flex-wrap gap-5 text-sm text-[var(--tx-d)]">
-            <Link href="https://sentrix-explorer.sentriscloud.com" target="_blank"
+            <Link href="https://sentrixscan.sentriscloud.com" target="_blank"
               className="hover:text-[var(--gold)] transition-colors">Explorer</Link>
             <Link href="https://sentrix-wallet.sentriscloud.com" target="_blank"
               className="hover:text-[var(--gold)] transition-colors">Wallet</Link>
