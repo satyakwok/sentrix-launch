@@ -96,7 +96,7 @@ export default function CreatePage() {
         </div>
         <h2 className="text-3xl font-black text-[var(--tx)] mb-3">Almost there!</h2>
         <p className="text-[var(--tx-m)] mb-6 leading-relaxed">
-          Contracts deploy in Phase 2. Your coin{' '}
+          Contracts deploy in the Voyager update. Your coin{' '}
           <span className="text-[var(--tx)] font-semibold">{form.name} ({form.symbol.toUpperCase()})</span>{' '}
           is queued and will launch as soon as the launchpad goes live.
         </p>
