@@ -31,7 +31,7 @@ export function Footer() {
               className="hover:text-[var(--gold)] transition-colors">API Docs</Link>
             <Link href="https://sentrix.sentriscloud.com" target="_blank"
               className="hover:text-[var(--gold)] transition-colors">About</Link>
-            <Link href="https://github.com/satyakwok/sentrix" target="_blank"
+            <Link href="https://github.com/sentrix-labs/sentrix" target="_blank"
               className="hover:text-[var(--gold)] transition-colors">GitHub</Link>
             <Link href="https://t.me/SentrixCommunity" target="_blank"
               className="hover:text-[var(--gold)] transition-colors">Telegram</Link>
