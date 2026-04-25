@@ -1,33 +1,27 @@
-# CoinBlast — Launch Your Coin
+# CoinBlast — moved
 
-A fair-launch coin launchpad powered by Sentrix Chain. Pay 100 SNTX → coin goes live instantly on a bonding curve. No VC, no presale.
+> ## ⚠ This repository has moved.
+>
+> CoinBlast (DEX + token launchpad) now lives in the SentrisCloud frontend monorepo:
+>
+> **[`sentriscloud/frontend`](https://github.com/Sentriscloud/frontend) → [`apps/coinblast/`](https://github.com/Sentriscloud/frontend/tree/main/apps/coinblast)**
+>
+> All future development, issues, and pull requests should go there.
+> This repository is kept read-only for historical reference.
 
-## Stack
+---
 
-- Next.js 15 · React 19 · TypeScript
-- Tailwind CSS v4
-- Zustand · Recharts · Framer Motion
+## Why the move
 
-## Getting Started
+Per the SentrisCloud architecture decision (April 2026), all user-facing TypeScript apps consolidate into a single `pnpm` + Turborepo monorepo at `sentriscloud/frontend`. The `sentrix-labs` org is reserved for the protocol foundation; products live under the `sentriscloud` org.
 
-```bash
-npm install
-npm run dev
-```
+## Where to find what was here
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+| Old path | New path |
+| --- | --- |
+| `sentrix-labs/coinblast` (root) | `sentriscloud/frontend/apps/coinblast/` |
+| `src/` | same, under `apps/coinblast/src/` |
+| `package.json` (`"name": "coinblast"`) | `apps/coinblast/package.json` (`"name": "@sentriscloud/coinblast"`) |
+| Standalone `npm install` | Workspace-level: `pnpm install` at monorepo root |
 
-## Build
-
-```bash
-npm run build
-npm start
-```
-
-## Chain Info
-
-- **Chain:** Sentrix Chain (ID: 7119)
-- **Native token:** SRX
-- **Launch fee:** 100 SNTX (burned)
-- **Graduation threshold:** 69,000 SRX market cap
-- **Trading fee:** 1% (50% burned / 50% ecosystem)
+Git history is preserved in the monorepo as a squashed migration commit.
